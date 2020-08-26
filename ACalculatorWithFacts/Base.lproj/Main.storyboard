@@ -67,7 +67,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <state key="normal" title="/"/>
                                         <connections>
-                                            <action selector="divisionTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bEo-iH-jLQ"/>
+                                            <action selector="operationTappedWithOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RSN-OK-QMX"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -107,7 +107,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <state key="normal" title="X"/>
                                         <connections>
-                                            <action selector="multiplyTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xRg-ZD-7Ix"/>
+                                            <action selector="operationTappedWithOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Ov-a2-rzh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -147,7 +147,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <state key="normal" title="-"/>
                                         <connections>
-                                            <action selector="subtractionTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nxw-va-Qfy"/>
+                                            <action selector="operationTappedWithOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="33c-W2-HGX"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -187,7 +187,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <state key="normal" title="+"/>
                                         <connections>
-                                            <action selector="additionTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="82D-Jl-4lh"/>
+                                            <action selector="operationTappedWithOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="85W-WV-pmn"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -223,7 +223,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <state key="normal" title="="/>
                                         <connections>
-                                            <action selector="equalTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dcr-5P-vQs"/>
+                                            <action selector="operationTappedWithOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S3a-HN-f5H"/>
                                         </connections>
                                     </button>
                                 </subviews>

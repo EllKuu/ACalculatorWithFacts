@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var additionBtnLabel: UIButton!
     var buttons = [UIButton]()
     
+    var mathOperatorSelected: Int!
     var savedNum1: Float!
     var savedNum2: Float!
     var result: Float!
@@ -51,39 +52,15 @@ class ViewController: UIViewController {
         
     }
     
+    // TODO: code percent button
     @IBAction func percentTapped(_ sender: Any) {
     }
     
-    @IBAction func divisionTapped(_ sender: Any) {
-        divisionBtnLabel.tintColor = UIColor.red
-        calculate(num: divisionBtnLabel)
-    }
-    
-    @IBAction func multiplyTapped(_ sender: Any) {
-        multiplyBtnLabel.tintColor = UIColor.red
-        calculate(num: multiplyBtnLabel)
-    }
-    
-    @IBAction func subtractionTapped(_ sender: Any) {
-        subtractionBtnLabel.tintColor = UIColor.red
-        calculate(num: subtractionBtnLabel)
-    }
-    
-    @IBAction func additionTapped(_ sender: Any) {
-        additionBtnLabel.tintColor = UIColor.red
-        calculate(num: additionBtnLabel)
-        
-    }
-    
-    @IBAction func equalTapped(_ sender: Any) {
-        
-    }
     
     @IBAction func decimalTapped(_ sender: Any) {
         if numberLabel.text!.firstIndex(of: ".") == nil{
             numberLabel.text! += "."
         }
-        
     }
     
     @IBAction func numberTapped(num: UIButton){
@@ -118,6 +95,34 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func operationTapped(operation: UIButton){
+        
+        if savedNum1 != nil && savedNum2 != nil && mathOperatorSelected != nil{
+            calculateResult(mathOption: mathOperatorSelected)
+        }
+        
+        // check which operation is selected
+        for button in buttons {
+            if button.tag == operation.tag{
+                button.tintColor = UIColor.red
+                mathOperatorSelected = button.tag
+            }else{
+                button.tintColor = UIColor.blue
+            }
+        }
+        
+        // user has selected a math function check if savedNum1 has no value and store text as a float
+        if savedNum1 == nil {
+            savedNum1 = Float(numberLabel.text!)
+        }
+        
+        // both saved nums contain a value and a math function can be performed
+        if savedNum1 != nil && savedNum2 != nil{
+            calculateResult(mathOption: mathOperatorSelected)
+            
+        }
+    }
+    
     // MARK: Calculator functions
     
     func checkNums(num: Int){
@@ -133,12 +138,12 @@ class ViewController: UIViewController {
                 numberLabel.text! += "\(num)"
             }
         }
-        // user has input a number and selected a math function to perform, this catches the users 2nd number
+            // user has input a number and selected a math function to perform, this catches the users 2nd number
         else if savedNum1 != nil && savedNum2 == nil {
             numberLabel.text = "\(num)"
             savedNum2 = Float(numberLabel.text!)
         }
-        // will add any additional numbers to the string if the user taps more numbers and place the result in savedNum2
+            // will add any additional numbers to the string if the user taps more numbers and place the result in savedNum2
         else if savedNum1 != nil && savedNum2 != nil{
             numberLabel.text! += "\(num)"
             savedNum2 = Float(numberLabel.text!)
@@ -147,42 +152,57 @@ class ViewController: UIViewController {
         
     }
     
-    func calculate(num: UIButton){
-        
-        // user has selected a math function check if savedNum1 has no value and store text as a float
-        if savedNum1 == nil {
-            savedNum1 = Float(numberLabel.text!)
+    func calculateResult(mathOption: Int){
+        switch mathOption {
+        case 11:
+            // equals
+            switch mathOperatorSelected {
+            case 12: // addition
+                result = savedNum1 + savedNum2
+            case 13:
+                //minus
+                result = savedNum1 - savedNum2
+            case 14:
+                // multiplication
+                result = savedNum1 * savedNum2
+            case 15:
+                // division
+                result = savedNum1 / savedNum2
+            default:
+                break
+            }
+        case 12: // addition
+            result = savedNum1 + savedNum2
+        case 13:
+            //minus
+            result = savedNum1 - savedNum2
+        case 14:
+            // multiplication
+            result = savedNum1 * savedNum2
+        case 15:
+            // division
+            result = savedNum1 / savedNum2
+        default:
+            break
         }
-        
-        // both saved nums contain a value and a math function can be performed
-        if savedNum1 != nil && savedNum2 != nil{
-            switch num.tag {
-                   case 11:
-                       // equals
-                       print("=")
-                   case 12: // addition
-                       result = savedNum1 + savedNum2
-                   case 13:
-                       //minus
-                       result = savedNum1 - savedNum2
-                   case 14:
-                       // multiplication
-                       result = savedNum1 * savedNum2
-                   case 15:
-                       // division
-                       result = savedNum1 / savedNum2
-                   default:
-                       break
-                   }
-            numberLabel.text = String(result)
-            savedNum1 = result
-            savedNum2 = nil
+        numberLabel.text = String(result)
+        if numberLabel.text?.hasSuffix(".0") == true {
+            numberLabel.text?.removeLast(2)
         }
-       
+        savedNum1 = result
+        savedNum2 = nil
     }
     
     
     
     
-}
+} // end of class
+
+
+
+
+
+
+
+
 
