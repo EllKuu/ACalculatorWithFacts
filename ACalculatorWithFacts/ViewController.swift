@@ -52,17 +52,59 @@ class ViewController: UIViewController {
         
     }
     
-    // TODO: code percent button
-    @IBAction func percentTapped(_ sender: Any) {
-    }
-    
-    
     @IBAction func decimalTapped(_ sender: Any) {
-        if numberLabel.text!.firstIndex(of: ".") == nil{
-            numberLabel.text! += "."
+          if numberLabel.text!.firstIndex(of: ".") == nil{
+              numberLabel.text! += "."
+          }
+      }
+    
+    @IBAction func percentTapped(_ sender: Any) {
+        if savedNum1 == nil {
+            savedNum1 = Float(numberLabel.text!)
         }
+        // result = num1 +-*/ (num1 * (num2/100))
+        // check if num1 has a number
+        var dividerByZero = false
+        if savedNum1 != nil && savedNum2 == nil{
+            result = savedNum1 / 100
+            numberLabel.text = String(result)
+        }else if savedNum1 != nil && savedNum2 != nil{
+            let percentageOfNum1 = savedNum1 * (savedNum2/100)
+            
+            switch mathOperatorSelected {
+            case 12: // addition
+                result = savedNum1 + percentageOfNum1
+            case 13:
+                //minus
+                result = savedNum1 - percentageOfNum1
+            case 14:
+                // multiplication
+                result = savedNum1 * percentageOfNum1
+            case 15:
+                // division
+                if percentageOfNum1 == 0{
+                    dividerByZero = true
+                }else{
+                    result = savedNum1 / percentageOfNum1
+                }
+            default:
+                break
+            }
+            if dividerByZero{
+                numberLabel.text = "error"
+            }else{
+                numberLabel.text = String(result)
+                if numberLabel.text?.hasSuffix(".0") == true {
+                    numberLabel.text?.removeLast(2)
+                }
+                savedNum1 = result
+                savedNum2 = nil
+            }
+        }
+        
     }
     
+
     @IBAction func numberTapped(num: UIButton){
         for button in buttons{
             button.tintColor = UIColor.blue
@@ -153,6 +195,7 @@ class ViewController: UIViewController {
     }
     
     func calculateResult(mathOption: Int){
+        var dividerByZero = false
         switch mathOption {
         case 11:
             // equals
@@ -167,7 +210,12 @@ class ViewController: UIViewController {
                 result = savedNum1 * savedNum2
             case 15:
                 // division
-                result = savedNum1 / savedNum2
+                if savedNum2 == 0{
+                    dividerByZero = true
+                }else{
+                    result = savedNum1 / savedNum2
+                }
+                
             default:
                 break
             }
@@ -181,16 +229,26 @@ class ViewController: UIViewController {
             result = savedNum1 * savedNum2
         case 15:
             // division
-            result = savedNum1 / savedNum2
+            if savedNum2 == 0{
+                dividerByZero = true
+            }else{
+                result = savedNum1 / savedNum2
+            }
         default:
             break
         }
-        numberLabel.text = String(result)
-        if numberLabel.text?.hasSuffix(".0") == true {
-            numberLabel.text?.removeLast(2)
+        
+        if dividerByZero{
+            numberLabel.text = "error"
+        }else{
+            numberLabel.text = String(result)
+            if numberLabel.text?.hasSuffix(".0") == true {
+                numberLabel.text?.removeLast(2)
+            }
+            savedNum1 = result
+            savedNum2 = nil
         }
-        savedNum1 = result
-        savedNum2 = nil
+        
     }
     
     
