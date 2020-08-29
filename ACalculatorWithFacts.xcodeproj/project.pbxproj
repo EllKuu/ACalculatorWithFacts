@@ -13,6 +13,9 @@
 		B23FAB0F24F19791006F6812 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B23FAB0D24F19791006F6812 /* Main.storyboard */; };
 		B23FAB1124F19792006F6812 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23FAB1024F19792006F6812 /* Assets.xcassets */; };
 		B23FAB1424F19792006F6812 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B23FAB1224F19792006F6812 /* LaunchScreen.storyboard */; };
+		B250A80324FA96380041395B /* NumberFact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B250A80224FA96380041395B /* NumberFact.swift */; };
+		B257967824F93231007234F7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B257967724F93231007234F7 /* Constants.swift */; };
+		B257967A24F93924007234F7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B257967924F93924007234F7 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		B23FAB1024F19792006F6812 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B23FAB1324F19792006F6812 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B23FAB1524F19792006F6812 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B250A80224FA96380041395B /* NumberFact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFact.swift; sourceTree = "<group>"; };
+		B257967724F93231007234F7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B257967924F93924007234F7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,50 @@
 		B23FAB0624F19791006F6812 /* ACalculatorWithFacts */ = {
 			isa = PBXGroup;
 			children = (
+				B257967624F930CA007234F7 /* Constants */,
+				B257967524F930C1007234F7 /* Models */,
+				B257967424F93077007234F7 /* ViewControllers */,
+				B257967324F93067007234F7 /* Storyboards */,
 				B23FAB0724F19791006F6812 /* AppDelegate.swift */,
 				B23FAB0924F19791006F6812 /* SceneDelegate.swift */,
-				B23FAB0B24F19791006F6812 /* ViewController.swift */,
-				B23FAB0D24F19791006F6812 /* Main.storyboard */,
 				B23FAB1024F19792006F6812 /* Assets.xcassets */,
 				B23FAB1224F19792006F6812 /* LaunchScreen.storyboard */,
 				B23FAB1524F19792006F6812 /* Info.plist */,
 			);
 			path = ACalculatorWithFacts;
+			sourceTree = "<group>";
+		};
+		B257967324F93067007234F7 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B23FAB0D24F19791006F6812 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B257967424F93077007234F7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B23FAB0B24F19791006F6812 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B257967524F930C1007234F7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B257967924F93924007234F7 /* Model.swift */,
+				B250A80224FA96380041395B /* NumberFact.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B257967624F930CA007234F7 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				B257967724F93231007234F7 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +179,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B250A80324FA96380041395B /* NumberFact.swift in Sources */,
+				B257967A24F93924007234F7 /* Model.swift in Sources */,
 				B23FAB0C24F19791006F6812 /* ViewController.swift in Sources */,
 				B23FAB0824F19791006F6812 /* AppDelegate.swift in Sources */,
 				B23FAB0A24F19791006F6812 /* SceneDelegate.swift in Sources */,
+				B257967824F93231007234F7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

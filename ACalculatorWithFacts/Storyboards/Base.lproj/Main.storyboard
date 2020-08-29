@@ -209,6 +209,10 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOb-1j-VxW">
                                         <rect key="frame" x="91" y="0.0" width="81" height="50"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="FACT"/>
+                                        <connections>
+                                            <action selector="factBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gdz-jT-8Nc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTd-wK-Mwm">
                                         <rect key="frame" x="182" y="0.0" width="81" height="50"/>

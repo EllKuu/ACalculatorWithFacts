@@ -25,10 +25,15 @@ class ViewController: UIViewController {
     var savedNum2: Float!
     var result: Float!
     
+    var model: Model!
+    var numberFactObj: NumberFact!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         buttons += [divisionBtnLabel, multiplyBtnLabel, additionBtnLabel, subtractionBtnLabel]
         numberLabel.text = "0"
+        factLabel.text = "FACT"
+        model = Model()
         
     }
     
@@ -38,6 +43,7 @@ class ViewController: UIViewController {
         savedNum1 = nil
         savedNum2 = nil
         result = nil
+        factLabel.text = "FACT"
         for button in buttons{
             button.tintColor = UIColor.blue
         }
@@ -164,6 +170,17 @@ class ViewController: UIViewController {
             
         }
     }
+    
+    // checks what number is currently in the numberLabel and presents a fact to the user from the numbersapi
+    @IBAction func factBtnTapped(_ sender: UIButton) {
+        model.getNumberFact(number: numberLabel.text!){ (numObj) in
+            self.factLabel.text = numObj.text
+        }
+        
+    }
+    
+    
+    
     
     // MARK: Calculator functions
     
